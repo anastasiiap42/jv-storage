@@ -6,8 +6,8 @@ import core.basesyntax.Storage;
 public class StorageImpl<K, V> implements Storage<K, V> {
     private K[] keys;
     private V[] values;
-    private static final int DEFAULT_CAPACITY = 10;
     private int size = 0;
+    private static final int DEFAULT_CAPACITY = 10;
 
     public StorageImpl() {
         keys = (K[]) new Object[DEFAULT_CAPACITY];
