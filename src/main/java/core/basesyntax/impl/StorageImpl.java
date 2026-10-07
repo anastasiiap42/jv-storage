@@ -1,14 +1,13 @@
 package core.basesyntax.impl;
 
-import java.util.Map;
 import core.basesyntax.Storage;
 
 @SuppressWarnings("unchecked")
 public class StorageImpl<K, V> implements Storage<K, V> {
+    private static final int DEFAULT_CAPACITY = 10;
     private K[] keys;
     private V[] values;
     private int size;
-    private static final int DEFAULT_CAPACITY = 10;
 
     public StorageImpl() {
         this.size = 0;
@@ -24,11 +23,11 @@ public class StorageImpl<K, V> implements Storage<K, V> {
     public void put(K newKey, V newValue) {
         for (int i = 0; i < keys.length; i++) {
             if (isSameKey(keys[i], newKey)) {
-                    if (values[i] == null) {
-                        size++;
-                    }
-                    values[i] = newValue;
-                    return;
+                if (values[i] == null) {
+                    size++;
+                }
+                values[i] = newValue;
+                return;
             }
         }
         if (size < DEFAULT_CAPACITY) {
